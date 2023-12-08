@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="banner">
+            <div class="navbar">
+                <img src="img/logo.png" class="logo">
+                <ul>
+                    <li> <a href="#">Home</a></li>
+                    <li> <a href="text_to_pdf.html">Text to PDF</a></li>
+                    <li> <a href="#">About</a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <h1>PDF TO TXT</h1>
+                <p> This application accepts PDF files only. <br>Press browse to upload your file.</p>
+                <form action="php/convert.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="files[]" accept=".pdf" multiple>
+                    <button type="submit">Convert to txt!</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
