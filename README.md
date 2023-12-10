@@ -3,6 +3,8 @@
 QuickSwitch is a website that provides conversion between PDF and text files.
 This project is prepared for the submission of CAT201 assignment.
 
+> Note: Support for special characters is unstable. Converting text files with special characters may break the app.
+
 ## Installation and Running
 
 ### Dependencies
