@@ -30,7 +30,7 @@ if (isset($_FILES["files"])) {
                 } else {
                     implode("\n", $output);
                 }
-                // unlink($input_filepath);    // Uncomment this line to delete temporary uploads, kept in for demo
+                // unlink($input_filepath); // Uncomment this line to delete temporary uploads, kept in for demo
             } else {
                 echo "Error: Unsupported file type.";
             }
@@ -38,16 +38,47 @@ if (isset($_FILES["files"])) {
     }
 
     // Let the user download the files
-    if (!empty($converted_files)) {
-        echo "<h2>Download converted files</h2>";
-        foreach ($converted_files as $file_id => $file_data) {
-            // Get the file extension
-            $file_extension = $file_data["extension"];
-            echo "<a href='download.php?file_id=$file_id&extension=$file_extension'>Download $file_id.$file_extension</a><br>";
-        }
-    } else {
-        echo "No files were converted.";
+    if (empty($converted_files)) {
+        exit("No files were converted!");
     }
 } else {
     echo "No files uploaded!";
 }
+?>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Download Converted Files</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <img src="../img/logo.png" class="logo">
+            <ul>
+                <li> <a href="/index.html">PDF to Text</a></li>
+                <li> <a href="/text_to_pdf.html">Text to PDF</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h2>Download Converted Files</h2>
+            <ul class="download-list">
+                <?php foreach ($converted_files as $file_id => $file_data) : ?>
+                    <?php $file_extension = $file_data["extension"]; ?>
+                    <li>
+                        <a href="download.php?file_id=<?php echo $file_id; ?>&extension=<?php echo $file_extension; ?>" class="download-link">
+                            Download <?php echo $file_id . '.' . $file_extension; ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

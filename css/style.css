@@ -85,3 +85,31 @@ button{
     color: #110909;
     cursor: pointer;
 }
+
+.download-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .download-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .download-link {
+    display: block;
+    color: #333;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+  
+  .download-link:hover {
+    background-color: #eee;
+  }
